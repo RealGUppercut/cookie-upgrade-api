@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+// import "./page.module.css";
 
 function HomePage() {
   const [upgrades, setUpgrades] = useState([]);
@@ -15,15 +16,24 @@ function HomePage() {
   }, []);
 
   return (
-    <div>
-      <ul>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Cost</th>
+          <th>Increase</th>
+        </tr>
+      </thead>
+      <tbody>
         {upgrades.map((item) => (
-          <li key={item.id}>
-            Name: {item.name}, Cost: {item.cost}, Increase: {item.increase}
-          </li>
+          <tr key={item.id}>
+            <td>{item.name}</td>
+            <td>{item.cost}</td>
+            <td>{item.increase}</td>
+          </tr>
         ))}
-      </ul>
-    </div>
+      </tbody>
+    </table>
   );
 }
 
